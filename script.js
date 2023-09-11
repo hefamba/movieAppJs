@@ -50,10 +50,13 @@ function showMovies(movies) {
 }
 
 async function getMovies(url) {
-  const res = await fetch(url);
-  const data = await res.json();
-
-  showMovies(data.results);
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    showMovies(data.results);
+  } catch (error) {
+    main.innerHTML = '<h1>Sorry Something went wrong..</h1>';
+  }
 }
 
 getMovies(API_URL);
