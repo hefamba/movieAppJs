@@ -13,7 +13,6 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 
 // GET INITIAL MOVIES
-
 function getVoteAverageColor(vote) {
   if (vote >= 8) {
     return 'green';
@@ -62,18 +61,15 @@ async function getMovies(url) {
 
 getMovies(API_URL);
 // CREATING THE SEARCH
-
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const searchTerm = search.value;
   if (searchTerm && searchTerm !== '') {
     try {
-      let url = SEARCH_API + searchTerm;
-      const res = await fetch(url);
-      const { results } = await res.json();
-
-      if (results.length === 0) {
+      let url = `results.html?query=${encodeURIComponent(searchTerm)}`;
+      window.location.href = url;
+      if (data.results.length === 0) {
         main.innerHTML = '<h1>No matches for Search Term.</h1>';
       } else {
         showMovies(results);
@@ -81,8 +77,6 @@ form.addEventListener('submit', async (event) => {
     } catch (error) {
       main.innerHTML = '<h1>Sorry Something went wrong..</h1>';
     }
-
-    search.value = '';
   } else {
     window.location.reload();
   }
