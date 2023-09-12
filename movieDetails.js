@@ -1,5 +1,6 @@
 /** @format */
 const api_key = 'api_key=307b40941d0fad058e7110084ed9cd95';
+const backBtn = document.querySelector('.backBtn');
 
 function getMovieIdFromURL() {
   // grabbing my query string Ex: ?id=fhjroafbainfoa or ?name=Henry&age=29, whatever follows the ?
@@ -16,7 +17,7 @@ async function fetchMovieDetail() {
     try {
       const res = await fetch(movieDetailsURL);
       const data = await res.json();
-      console.log(data.overview);
+      console.log(data);
     } catch (error) {
       console.error(error, 'results not shown');
     }
@@ -24,5 +25,10 @@ async function fetchMovieDetail() {
     console.error('API DID NOT WORK');
   }
 }
+
+backBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  window.history.back();
+});
 
 fetchMovieDetail();

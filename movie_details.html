@@ -8,21 +8,60 @@
       content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="shortcut icon"
+      href="images/movie_icon2.png"
+      type="image/x-icon" />
+    <link
+      rel="stylesheet"
       href="style.css" />
     <title>Movie App</title>
   </head>
   <body>
     <header>
       <form id="form">
-        <input
-          type="text"
-          id="search"
-          class="search"
-          placeholder="Search" />
+        <h2 id="appTitle">
+          <a
+            style="color: aliceblue"
+            href="index.html"
+            >THE MOVIE APP!</a
+          >
+        </h2>
+        <button class="backBtn"><i class="fa-solid fa-arrow-left"></i></button>
       </form>
     </header>
 
-    <main id="main"></main>
+    <main id="main">
+      <div class="movie-details">
+        <div class="img-container">
+          <h2>Title!!!!!!!!</h2>
+          <span class="release-date">released: 10-10-1995</span>
+          <img
+            src="https://image.tmdb.org/t/p/w185/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg"
+            alt="title" />
+          <span class="genre">Adventure</span>
+        </div>
+        <div class="info-container">
+          <h2>OVERVIEW</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+            cupiditate nemo odio reprehenderit suscipit sed hic eveniet minima
+            aut iste nam commodi natus qui voluptatum ipsam distinctio nobis,
+            veritatis unde! Sapiente earum saepe totam adipisci, incidunt,
+            voluptatem minima ipsam optio aliquid omnis impedit quibusdam sint
+            ipsum quaerat! Culpa, magni error.
+          </p>
+          <div class="stats">
+            <div class="ratings">AVG RATING: 9.4343</div>
+            <div class="revenue">REVENUE: 23847575</div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="movieDetails.js"></script>
   </body>
 </html>
