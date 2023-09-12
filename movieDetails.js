@@ -16,7 +16,7 @@ async function fetchMovieDetail() {
     try {
       const res = await fetch(movieDetailsURL);
       const data = await res.json();
-      console.log(data.title);
+      console.log(data.overview);
     } catch (error) {
       console.error(error, 'results not shown');
     }
