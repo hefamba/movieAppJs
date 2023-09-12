@@ -7,9 +7,18 @@ const IMG_PATH = `https://image.tmdb.org/t/p/w185/`;
 function getMovieIdFromURL() {
   // grabbing my query string Ex: ?id=fhjroafbainfoa or ?name=Henry&age=29, whatever follows the ?
   const queryString = window.location.search;
-  console.log(queryString);
   const urlParams = new URLSearchParams(queryString);
   return urlParams.get('id');
+}
+
+function getVoteAverageColor(vote) {
+  if (vote >= 8) {
+    return 'green';
+  } else if (vote <= 4) {
+    return 'red';
+  } else {
+    return 'orange';
+  }
 }
 
 async function fetchMovieDetail() {
@@ -19,7 +28,6 @@ async function fetchMovieDetail() {
     try {
       const res = await fetch(movieDetailsURL);
       const data = await res.json();
-      console.log(data);
       const moiveDetailsEl = document.createElement('div');
       moiveDetailsEl.classList.add('movie-details');
       const {
@@ -31,6 +39,9 @@ async function fetchMovieDetail() {
         revenue,
         release_date,
       } = data;
+
+      const formattedRevenue = parseInt(revenue).toLocaleString();
+
       const details = `
       <div class="img-container">
       <h2>${title}</h2>
@@ -46,8 +57,10 @@ async function fetchMovieDetail() {
        ${overview}
       </p>
       <div class="stats">
-        <div class="ratings">AVG RATING: ${vote_average}</div>
-        <div class="revenue">REVENUE: ${revenue}</div>
+        <div class="ratings">AVG RATING: <span class="${getVoteAverageColor(
+          vote_average
+        )}" style="font-weight: bold">${vote_average}</span></div>
+        <div class="revenue">REVENUE: <span style="font-weight: bold"> $${formattedRevenue} </span></div>
       </div>
     </div>
       `;

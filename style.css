@@ -155,7 +155,7 @@ a {
 }
 
 .img-container img {
-  width: 25vw;
+  width: 28vw;
 }
 
 .info-container {
@@ -174,4 +174,22 @@ a {
   display: flex;
   justify-content: space-around;
   width: 50vw;
+}
+
+.release-date {
+  font-weight: bold;
+}
+.genre {
+  font-weight: bold;
+}
+
+.ratings span.green {
+  color: lightgreen;
+}
+
+.ratings span.orange {
+  color: orange;
+}
+.ratings span.red {
+  color: red;
 }
