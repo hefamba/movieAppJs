@@ -6,7 +6,7 @@ const API_URL = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&pag
 
 const IMG_PATH = `https://image.tmdb.org/t/p/w185/`;
 
-const SEARCH_API = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&${api_key}`;
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&${api_key}&query="`;
 
 const main = document.getElementById('main');
 const form = document.getElementById('form');
@@ -63,17 +63,15 @@ async function getMovies(url) {
 }
 
 getMovies(API_URL);
-
 // CREATING THE SEARCH
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const searchTerm = search.value.trim(); // Trim whitespace from search term
-
+  const searchTerm = search.value;
   if (searchTerm && searchTerm !== '') {
     try {
-      const url = `${SEARCH_API}&query=${encodeURIComponent(searchTerm)}`;
+      let url = SEARCH_API + searchTerm;
       const res = await fetch(url);
       const { results } = await res.json();
 
@@ -83,7 +81,7 @@ form.addEventListener('submit', async (event) => {
         showMovies(results);
       }
     } catch (error) {
-      main.innerHTML = '<h1>Sorry, something went wrong...</h1>';
+      main.innerHTML = '<h1>Sorry Something went wrong..</h1>';
     }
 
     search.value = '';
