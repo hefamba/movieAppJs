@@ -60,16 +60,25 @@ async function getMovies(url) {
 }
 
 getMovies(API_URL);
-
 // CREATING THE SEARCH
-
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const searchTerm = search.value;
-
   if (searchTerm && searchTerm !== '') {
-    getMovies(SEARCH_API + searchTerm);
+    try {
+      let url = SEARCH_API + searchTerm;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.results.length === 0) {
+        main.innerHTML = '<h1>No matches for Search Term.</h1>';
+      } else {
+        showMovies(data.results);
+      }
+    } catch (error) {
+      main.innerHTML = '<h1>Sorry Something went wrong..</h1>';
+    }
 
     search.value = '';
   } else {
