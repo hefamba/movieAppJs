@@ -47,8 +47,6 @@ function showMovies(movies) {
         `;
 
     main.appendChild(movieEl);
-
-    movieEl.addEventListener('click', () => {});
   });
 }
 
