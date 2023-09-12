@@ -28,12 +28,13 @@ function showMovies(movies) {
   main.innerHTML = '';
 
   movies.forEach((movie) => {
-    const { title, poster_path, overview, vote_average } = movie;
+    const { id, title, poster_path, overview, vote_average } = movie;
     let rating = Math.floor(vote_average);
     const movieEl = document.createElement('div');
     movieEl.classList.add('movie');
 
     movieEl.innerHTML = `
+    <a href="movie_details.html?id=${id}">
         <img src="${IMG_PATH + poster_path}" alt="${title}">
             <div class="movie-info">
                 <h3>${title}</h3>
@@ -46,6 +47,8 @@ function showMovies(movies) {
         `;
 
     main.appendChild(movieEl);
+
+    movieEl.addEventListener('click', () => {});
   });
 }
 
@@ -69,12 +72,12 @@ form.addEventListener('submit', async (event) => {
     try {
       let url = SEARCH_API + searchTerm;
       const res = await fetch(url);
-      const data = await res.json();
+      const { results } = await res.json();
 
-      if (data.results.length === 0) {
+      if (results.length === 0) {
         main.innerHTML = '<h1>No matches for Search Term.</h1>';
       } else {
-        showMovies(data.results);
+        showMovies(results);
       }
     } catch (error) {
       main.innerHTML = '<h1>Sorry Something went wrong..</h1>';
