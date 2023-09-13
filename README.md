@@ -20,11 +20,11 @@ To run the Movie Search App locally, follow these steps:
 
 Run Command:
 
-	git clone https://github.com/your-username/movieAppJs.git.git
+	git clone https://github.com/your-username/movieAppJs.git
 
 Navigate to the project directory:
 
-	cd movie-search-app
+	cd movieAppJs
 
 Install the required dependencies:
 
