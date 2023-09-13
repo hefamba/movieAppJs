@@ -8,8 +8,11 @@ The Movie Search App is a web application that allows users to search for movies
 ## Table of Contents
 
 - [Installation](#installation)
-- [Section 2](#section-2)
-- [Section 3](#section-3)
+- [Usage](#usage)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [APIs Used](#apis-used)
 
 ## Installation
 
@@ -17,7 +20,7 @@ To run the Movie Search App locally, follow these steps:
 
 Run Command:
 
-	git clone https://github.com/your-username/movie-search-app.git
+	git clone https://github.com/your-username/movieAppJs.git.git
 
 Navigate to the project directory:
 
@@ -34,10 +37,28 @@ Start the application:
 npm start
 ```
 
-## Section 2
+## Usage
 
-This is the content of Section 2.
+1. Enter a movie title in the search bar.
+2. Click the "Search" button or press "Enter" on your keyboard.
+3. The app will display a list of movies that match your search query.
+4. Click on a movie to view more details.
 
-## Section 3
+## Features
 
-This is the content of Section 3.
+- Search for movies by title.
+- View movie details, including the title, poster, overview, and rating.
+- Click on a movie to navigate to a details page.
+
+## Screenshots
+<img width="1440" alt="Screen Shot 2023-09-12 at 8 07 51 PM" src="https://github.com/hefamba/movieAppJs/assets/81347556/78f43ba6-7f9d-44e3-872e-333ae4b167db">
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+
+## APIs Used
+
+- The Movie Database (TMDb) API: Used to fetch movie data.
