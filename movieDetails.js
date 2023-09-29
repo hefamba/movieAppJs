@@ -43,26 +43,28 @@ async function fetchMovieDetail() {
       const formattedRevenue = parseInt(revenue).toLocaleString();
 
       const details = `
+      <div class='details-container'>
       <div class="img-container">
-      <h2>${title}</h2>
-      <span class="release-date">released: ${release_date}</span>
-      <img
-        src="${IMG_PATH + poster_path}"
-        alt="${title}" />
-      <span class="genre">${genres[0].name}</span>
-    </div>
-    <div class="info-container">
-      <h2>OVERVIEW</h2>
-      <p>
-       ${overview}
-      </p>
-      <div class="stats">
-        <div class="ratings">AVG RATING: <span class="${getVoteAverageColor(
-          vote_average
-        )}" style="font-weight: bold">${vote_average}</span></div>
-        <div class="revenue">REVENUE: <span style="font-weight: bold"> $${formattedRevenue} </span></div>
+        <h2>${title}</h2>
+        <span class="release-date">released: ${release_date}</span>
+        <img
+          src="${IMG_PATH + poster_path}"
+          alt="${title}" />
+        <span class="genre">${genres[0].name}</span>
       </div>
-    </div>
+      <div class="info-container">
+        <h2>OVERVIEW</h2>
+        <p>
+         ${overview}
+        </p>
+        <div class="stats">
+          <div class="ratings">AVG RATING: <span class="${getVoteAverageColor(
+            vote_average
+          )}" style="font-weight: bold">${vote_average}</span></div>
+          <div class="revenue">REVENUE: <span style="font-weight: bold"> $${formattedRevenue} </span></div>
+        </div>
+      </div>
+      </div>
       `;
 
       moiveDetailsEl.innerHTML = details;
