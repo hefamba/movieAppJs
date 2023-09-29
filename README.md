@@ -36,17 +36,10 @@ Navigate to the project directory:
 
     cd movieAppJs
 
-Install the required dependencies:
-
-```bash
-npm install
-```
-
 Start the application:
 
-```bash
-npm start
-```
+right click and open with live service.
+
 
 ## Usage
 
